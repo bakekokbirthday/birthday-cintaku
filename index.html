@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff1f7">
+<title>Happy Birthday, Cintaku ♡</title>
+<style>
+:root{--pink:#f49abd;--deep:#a94f78;--ink:#59394b;--cream:#fff8fb;--rose:#ffe2ee}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#fff1f7,#fffafd 48%,#ffeaf3);color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+main{max-width:760px;margin:auto;padding:18px 18px 60px}.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative}
+.tag{font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#bd6c91}.hero h1{font-size:clamp(43px,11vw,76px);line-height:1.02;font-weight:normal;margin:18px 0;color:#9d4c73}.hero h1 span{color:#e58caf}.hero p,.section p{font:15px/1.8 Arial,sans-serif;color:#896d7d;max-width:520px}
+.gift-wrap{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff 0,#ffe1ed 65%,#f8b9d1 100%);box-shadow:0 14px 55px #dc8bad55;margin:28px 0;animation:float 3s ease-in-out infinite}.gift{font-size:82px;filter:drop-shadow(0 8px 8px #b55b7b44)}
+button{border:0;border-radius:999px;background:linear-gradient(135deg,#f6b0cc,#df7fa7);color:white;padding:14px 23px;font-weight:bold;letter-spacing:.04em;box-shadow:0 9px 25px #d77ba544;cursor:pointer;font-size:13px}
+button.secondary{background:#fff;color:#ad5d80;border:1px solid #efb4cb;box-shadow:none}
+.section{padding:58px 0;text-align:center}.section h2{font-size:clamp(30px,7vw,43px);font-weight:normal;color:#a45177;margin:10px 0 16px}.card{background:#ffffffc9;border:1px solid #f4c8d9;border-radius:24px;padding:25px 22px;margin:18px 0;box-shadow:0 14px 38px #d98eaa22}
+.big-emoji{font-size:48px}.letter{text-align:left;white-space:pre-line;font:16px/1.95 Georgia,serif;color:#714d60}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.photo{aspect-ratio:1/1;border:1px dashed #e4a2bd;border-radius:18px;overflow:hidden;background:#fff2f7;display:grid;place-items:center;color:#b36d8b;font:12px Arial,sans-serif;padding:10px}.photo img{width:100%;height:100%;object-fit:cover}
+.note{font:12px/1.6 Arial,sans-serif!important;color:#a17f90!important}.hidden{display:none}.music{position:fixed;right:14px;bottom:14px;z-index:5;border-radius:999px;padding:12px 15px;background:#a9547a;color:white;box-shadow:0 6px 20px #7c355544}
+footer{text-align:center;font:12px Arial,sans-serif;color:#ad8296;padding:35px 0}
+.heart{position:fixed;bottom:-30px;z-index:4;pointer-events:none;color:#e98fb2;animation:rise 6s linear forwards}
+@keyframes float{50%{transform:translateY(-12px) rotate(2deg)}}@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@media(min-width:600px){main{padding-left:28px;padding-right:28px}.photo{aspect-ratio:4/3}}
+</style>
+</head>
+<body>
+<audio id="bgMusic" src="musik.mp3" loop preload="none"></audio>
+<button class="music" id="musicBtn" onclick="toggleMusic()">♫ Putar musik</button>
+<main>
+<section class="hero">
+  <div class="tag">a little birthday surprise, made with love</div>
+  <div class="gift-wrap"><div class="gift">🎀🎁</div></div>
+  <h1>Happy Birthday,<br><span>Cintaku</span> ♡</h1>
+  <p>Ada kejutan kecil yang aku siapkan khusus buat kamu. Siap buka? ✨</p>
+  <button onclick="openSurprise()">BUKA KEJUTANNYA ♡</button>
+  <p class="note">Dibuat dengan banyak doa dan sedikit rasa gemas.</p>
+</section>
+
+<section id="surprise" class="section hidden">
+  <div class="tag">today is your special day</div><h2>Yeay, hari spesialmu! 🌷</h2>
+  <div class="card"><div class="big-emoji">🧁💗</div>
+  <p>Selamat ulang tahun, Cintaku! Semoga hari ini dipenuhi senyum, hal-hal manis, dan kebahagiaan yang nggak ada habisnya.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="tag">little moments</div><h2>Our little gallery 📸</h2>
+  <p>Beberapa momen yang ingin aku simpan baik-baik.</p>
+  <div class="grid">
+    <div class="photo"><img src="foto1.jpg" alt="Kenangan 1" onerror="this.remove();this.parentElement.textContent='♡ Tambahkan foto1.jpg'"></div>
+    <div class="photo"><img src="foto2.jpg" alt="Kenangan 2" onerror="this.remove();this.parentElement.textContent='♡ Tambahkan foto2.jpg'"></div>
+    <div class="photo"><img src="foto3.jpg" alt="Kenangan 3" onerror="this.remove();this.parentElement.textContent='♡ Tambahkan foto3.jpg'"></div>
+    <div class="photo"><img src="foto4.jpg" alt="Kenangan 4" onerror="this.remove();this.parentElement.textContent='♡ Tambahkan foto4.jpg'"></div>
+  </div>
+  <p class="note">Foto bisa diganti dengan mengunggah foto bernama foto1.jpg sampai foto4.jpg ke folder website.</p>
+</section>
+
+<section class="section">
+  <div class="tag">a letter for you</div><h2>Dear Cintaku, 💌</h2>
+  <div class="card letter">Happy birthday, cintakuuu! ♡
+
+Hari ini adalah hari spesial seseorang yang punya tempat istimewa di hatiku. Aku mungkin belum bisa ada di sampingmu untuk merayakannya secara langsung, tapi semoga halaman kecil ini bisa menyampaikan sedikit rasa sayangku.
+
+Terima kasih sudah hadir dan mewarnai hari-hariku. Semoga di umur yang baru ini, semua hal baik semakin dekat denganmu. Semoga langkahmu selalu dimudahkan, impianmu satu per satu tercapai, dan kamu selalu punya alasan untuk tersenyum.
+
+Jangan terlalu keras sama diri sendiri, ya. Kalau suatu hari terasa berat, ingat bahwa kamu sudah berusaha sejauh ini. Aku berharap dunia selalu punya cara untuk memperlakukanmu dengan lembut.
+
+Pokoknya, hari ini kamu harus banyak bahagia! Jangan lupa tiup lilin dan buat harapan. Aku ikut mengirim banyak doa baik dari jauh. 💗
+
+Once again, happy birthday, my favorite person. I’m so lucky to have you in my story. ♡
+
+— from someone who cares about you</div>
+</section>
+
+<section class="section">
+  <div class="tag">one last little wish</div><h2>Make a wish ✨</h2>
+  <p>Pejamkan mata sebentar, buat satu harapan terbaikmu, lalu tekan tombol ini.</p>
+  <button onclick="sendWish()">AKU SUDAH BUAT HARAPAN ♡</button>
+  <div id="wishText" class="card hidden"><div class="big-emoji">🌙💞</div><p>Semoga harapan baikmu menemukan jalannya. Kamu layak mendapatkan banyak kebahagiaan. ♡</p></div>
+</section>
+<footer>made with ♡, especially for you</footer>
+</main>
+<script>
+const audio=document.getElementById('bgMusic'), musicBtn=document.getElementById('musicBtn');
+function toggleMusic(){if(audio.paused){audio.play().then(()=>musicBtn.textContent='♫ Jeda musik').catch(()=>alert('Tambahkan file musik.mp3 ke folder website terlebih dahulu.'));}else{audio.pause();musicBtn.textContent='♫ Putar musik';}}
+function openSurprise(){document.getElementById('surprise').classList.remove('hidden');document.getElementById('surprise').scrollIntoView({behavior:'smooth'});hearts();if(audio.paused)toggleMusic();}
+function sendWish(){document.getElementById('wishText').classList.remove('hidden');hearts();}
+function hearts(){for(let i=0;i<20;i++){const h=document.createElement('span');h.className='heart';h.textContent=['♡','♥','✦','🌸'][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+'vw';h.style.animationDelay=Math.random()*2+'s';h.style.fontSize=(15+Math.random()*18)+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),8000);}}
+</script>
+</body>
+</html>
