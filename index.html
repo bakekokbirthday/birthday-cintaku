@@ -4,11 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Cintaku ♡</title>
+<title>For Someone Special ♡</title>
 
 <style>
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,17 +32,16 @@ body {
   align-items: center;
   padding: 30px 20px;
   background: linear-gradient(135deg,#ffe1ec,#fcecff,#fff4dc);
-  position: relative;
 }
 
 h1 {
   color: #e879a4;
-  font-size: 38px;
+  font-size: 36px;
 }
 
 .subtitle {
-  font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.9;
+  max-width: 450px;
 }
 
 button {
@@ -50,24 +53,20 @@ button {
   font-size: 15px;
   cursor: pointer;
   box-shadow: 0 5px 15px #e9a6c4;
-  margin: 10px;
+  margin: 12px;
 }
 
-button:hover {
-  transform: scale(1.06);
+button:active {
+  transform: scale(.94);
 }
 
-.heart {
-  font-size: 65px;
-  animation: heartbeat 1.3s infinite;
-}
-
-@keyframes heartbeat {
-  50% { transform: scale(1.2); }
+.hidden {
+  display: none !important;
 }
 
 .section {
-  padding: 65px 20px;
+  padding: 60px 18px;
+  animation: fadeIn 1s ease;
 }
 
 .card {
@@ -77,7 +76,99 @@ button:hover {
   padding: 25px;
   border-radius: 25px;
   box-shadow: 0 8px 25px #e9bfd1;
+  animation: fadeIn 1s ease;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* AMPL0P SURAT */
+
+.envelope-area {
+  margin: 35px auto;
+  max-width: 350px;
+}
+
+.envelope {
+  position: relative;
+  height: 190px;
+  margin: 25px auto;
+  cursor: pointer;
+  perspective: 800px;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #f7a8c6;
+  border-radius: 12px;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: #ffc5dc;
+  clip-path: polygon(0 0,50% 65%,100% 0,100% 100%,0 100%);
+  border-radius: 12px;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f18bb3;
+  clip-path: polygon(0 0,100% 0,50% 60%);
+  transform-origin: top;
+  transition: transform .8s ease;
+  z-index: 3;
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-heart {
+  position: absolute;
+  z-index: 4;
+  top: 65px;
+  left: 0;
+  right: 0;
+  font-size: 38px;
+  transition: opacity .4s;
+}
+
+.envelope.open .envelope-heart {
+  opacity: 0;
+}
+
+.letter {
+  display: none;
+  background: #fff8fc;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: left;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  margin-top: 20px;
+  border: 2px dashed #f4b4ce;
+}
+
+.letter.show {
+  display: block;
+  animation: fadeIn 1s ease;
+}
+
+/* FOTO */
 
 .gallery {
   display: flex;
@@ -87,7 +178,7 @@ button:hover {
 }
 
 .gallery img {
-  width: min(100%, 230px);
+  width: min(100%,230px);
   height: 280px;
   object-fit: cover;
   border-radius: 20px;
@@ -95,21 +186,38 @@ button:hover {
   box-shadow: 0 5px 15px #e9bfd1;
 }
 
-.letter {
-  display: none;
-  text-align: left;
-  line-height: 1.9;
-  white-space: pre-wrap;
+/* HUJAN HATI DAN BUNGA */
+
+.floating {
+  position: fixed;
+  top: 105vh;
+  pointer-events: none;
+  z-index: 10;
+  animation: floatUp linear forwards;
 }
 
-.letter.show {
-  display: block;
-  animation: appear 1s;
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
-@keyframes appear {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+/* CONFETTI */
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 99;
+  pointer-events: none;
+  animation: confettiFall 3.5s ease-in forwards;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
 }
 
 footer {
@@ -117,32 +225,17 @@ footer {
   background: #ffe1ec;
 }
 
-.floating {
-  position: fixed;
-  bottom: -30px;
-  animation: floatUp 7s linear infinite;
-  pointer-events: none;
-  z-index: 5;
-}
-
-@keyframes floatUp {
-  to {
-    transform: translateY(-110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.hidden {
-  display: none;
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- PEMBUKA -->
+
 <section class="hero">
-  <div class="heart">🎀</div>
+
+  <div style="font-size:65px">🎀</div>
+
   <p>♡ A SPECIAL DAY FOR SOMEONE SPECIAL ♡</p>
 
   <h1>Happy Birthday!</h1>
@@ -150,7 +243,7 @@ footer {
   <p class="subtitle">
     Ada sesuatu yang ingin aku tunjukkan kepadamu...
     <br>
-    Sebuah kejutan kecil yang sudah aku siapkan ♡
+    Sebuah kejutan kecil yang aku siapkan khusus untukmu ♡
   </p>
 
   <button onclick="showSurprise()">
@@ -158,104 +251,199 @@ footer {
   </button>
 
   <p>Made with love ♡</p>
+
 </section>
+
+<!-- ISI KEJUTAN -->
 
 <section class="section hidden" id="surprise">
 
-  <h1>Horeee! 🎂</h1>
+  <h1>Horeee! 🎉</h1>
+
   <p>Hari spesial untuk seseorang yang spesial!</p>
 
   <div class="card">
+
     <h2>♡ Birthday Wishes ♡</h2>
+
     <p id="birthdayText">
       Tulis ucapan ulang tahunmu sendiri di sini.
     </p>
+
   </div>
+
+  <!-- GALERI FOTO -->
 
   <h1>Our Little Memories 📸</h1>
 
   <div class="gallery">
+
     <img src="foto1.jpg" alt="Foto pertama">
+
     <img src="foto2.jpg" alt="Foto kedua">
+
   </div>
 
+  <!-- AMPLOP SURAT -->
+
   <div class="card">
-    <h2>💌 A Letter For You</h2>
+
+    <h2>💌 A Special Letter For You</h2>
 
     <p>
-      Ada sebuah surat kecil yang ingin aku berikan...
+      Ada surat kecil yang ingin aku berikan kepadamu...
     </p>
 
-    <button onclick="openLetter()">
-      Buka Surat 💗
-    </button>
+    <div class="envelope-area">
+
+      <div class="envelope" id="envelope"
+           onclick="openLetter()">
+
+        <div class="envelope-back"></div>
+        <div class="envelope-front"></div>
+        <div class="envelope-flap"></div>
+
+        <div class="envelope-heart">💗</div>
+
+      </div>
+
+      <p>Sentuh amplop untuk membuka surat ♡</p>
+
+    </div>
 
     <div class="letter" id="letter">
-      Tulis surat panjangmu sendiri di sini.
+Tulis surat panjangmu sendiri di sini.
+
+Dengan penuh kasih,
+♡
     </div>
+
   </div>
 
+  <!-- MUSIK -->
+
   <div class="card">
+
     <h2>🎶 Our Little Song</h2>
+
     <p>Putar musik spesial kita ♡</p>
+
     <audio controls loop style="width:100%">
       <source src="musik.mp3" type="audio/mpeg">
     </audio>
+
   </div>
 
-  <h2>♡ Once Again, Happy Birthday ♡</h2>
-  <p>Semoga hari ini menjadi hari yang indah!</p>
+  <div style="padding:30px">
+
+    <h2>♡ Once Again, Happy Birthday ♡</h2>
+
+    <p>Semoga hari ini menjadi hari yang indah!</p>
+
+    <div style="font-size:45px">🎂💗🌸</div>
+
+  </div>
 
 </section>
 
 <footer>
-  <p>Made specially for Cintaku 🎀</p>
+
+  <p>Made specially for you 🎀</p>
+
   <p>♡ Forever a special memory ♡</p>
+
 </footer>
 
 <script>
+
+// TOMBOL KEJUTAN
+
 function showSurprise() {
-  document.getElementById("surprise").classList.remove("hidden");
-  document.getElementById("surprise").scrollIntoView({
-    behavior: "smooth"
-  });
-  confettiHearts();
+
+  document.getElementById("surprise")
+    .classList.remove("hidden");
+
+  document.getElementById("surprise")
+    .scrollIntoView({behavior:"smooth"});
+
+  confetti();
+
 }
+
+// AMPLOP SURAT
 
 function openLetter() {
-  document.getElementById("letter").classList.toggle("show");
+
+  const envelope = document.getElementById("envelope");
+  const letter = document.getElementById("letter");
+
+  envelope.classList.toggle("open");
+  letter.classList.toggle("show");
+
 }
 
-function confettiHearts() {
-  const symbols = ["💗","💕","🎀","✨","🌸","💖"];
+// HUJAN HATI DAN BUNGA
 
-  for (let i = 0; i < 25; i++) {
-    const heart = document.createElement("div");
-    heart.className = "floating";
-    heart.textContent = symbols[Math.floor(Math.random()*symbols.length)];
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.animationDuration = (4+Math.random()*4) + "s";
-    heart.style.fontSize = (15+Math.random()*20) + "px";
+function floatingEffect() {
 
-    document.body.appendChild(heart);
+  const symbols = ["💗","💕","🌸","✨","♡","🌷"];
 
-    setTimeout(() => heart.remove(), 8000);
-  }
-}
-
-// Animasi dekorasi otomatis
-setInterval(() => {
-  const symbols = ["♡","🌸","✨","💕"];
   const item = document.createElement("div");
+
   item.className = "floating";
-  item.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+
+  item.textContent =
+    symbols[Math.floor(Math.random()*symbols.length)];
+
   item.style.left = Math.random()*100 + "vw";
-  item.style.animationDuration = "7s";
+
+  item.style.fontSize =
+    (15 + Math.random()*20) + "px";
+
+  item.style.animationDuration =
+    (6 + Math.random()*5) + "s";
 
   document.body.appendChild(item);
-  setTimeout(() => item.remove(), 7000);
-}, 1200);
+
+  setTimeout(() => item.remove(),11000);
+
+}
+
+setInterval(floatingEffect,900);
+
+// CONFETTI KEJUTAN
+
+function confetti() {
+
+  const symbols = ["💗","💕","🎉","✨","🌸","🎀"];
+
+  for(let i=0;i<45;i++) {
+
+    const item = document.createElement("div");
+
+    item.className = "confetti";
+
+    item.textContent =
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+    item.style.left = Math.random()*100 + "vw";
+
+    item.style.fontSize =
+      (15+Math.random()*20) + "px";
+
+    item.style.animationDelay =
+      Math.random()*1.5 + "s";
+
+    document.body.appendChild(item);
+
+    setTimeout(() => item.remove(),5000);
+
+  }
+
+}
+
 </script>
 
 </body>
-</html>
+    </html>
+  
